@@ -1,6 +1,7 @@
 package peg.encryption;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Coordinate {
     private BigDecimal x;
@@ -45,6 +46,12 @@ public class Coordinate {
     public String toString(){
         String xValue = x.toPlainString();
         String yValue = y.toPlainString();
+        return "(" + xValue + "," + yValue + ")";
+    }
+
+    public String toRoundedString(){
+        String xValue = x.setScale(0, RoundingMode.HALF_UP).toPlainString();
+        String yValue = y.setScale(0, RoundingMode.HALF_UP).toPlainString();
         return "(" + xValue + "," + yValue + ")";
     }
 }

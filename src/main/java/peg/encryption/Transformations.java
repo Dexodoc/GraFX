@@ -3,15 +3,15 @@ package peg.encryption;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-class Transformations {
+public class Transformations {
 
     private static Transformation[] transformationsList = {new TranslateLeft(), new TranslateRight(), new TranslateDown(), new TranslateUp(), new ScaleHorizontal(), new ScaleVertical(), new ScaleObliquePositive(), new ScaleObliqueNegative(), new ReflectX(), new ReflectY(), new ReflectObliquePositive(), new ReflectObliqueNegative(), new RotateClockwise(), new RotateAnticlockwise(), new ShiftObliquePositive(), new ShiftObliqueNegative()};
 
-    static Coordinate runTranslation(int transformation, int amount, Coordinate initial){
+    public static Coordinate runTranslation(int transformation, int amount, Coordinate initial){
         return transformationsList[transformation].apply(initial, amount, false);
     }
 
-    static Coordinate runOppositeTranslation(int transformation, int amount, Coordinate initial){
+    public static Coordinate runOppositeTranslation(int transformation, int amount, Coordinate initial){
         return transformationsList[transformation].apply(initial, amount, true);
     }
 

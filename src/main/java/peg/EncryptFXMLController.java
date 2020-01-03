@@ -99,7 +99,7 @@ public class EncryptFXMLController implements Initializable {
                 sb.append("\n");
             }
             String encryptedPT = sb.toString();
-            System.out.println(key);
+//            System.out.println(key);
             rightTextArea.setText(encryptedPT);
         }
     }
@@ -127,6 +127,9 @@ public class EncryptFXMLController implements Initializable {
             System.out.println(key);
             int[][] keys = Key.transformKey(key);
             Coordinate[] decrypted = Encrypt.decrypt(coords, keys);
+            for (Coordinate i: decrypted) {
+                System.out.println(i.toRoundedString());
+            }
             String plaintext = TextConversion.coordsIntoText(decrypted);
             rightTextArea.setText(plaintext);
         }
