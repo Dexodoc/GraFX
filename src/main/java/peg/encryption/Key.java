@@ -29,8 +29,8 @@ public class Key {
     }
 
     public static boolean keyValidity(String key){
-        if (key.toLowerCase().matches("^[a-f0-9]+$") && key.length() % 2 == 0) return true;
-        else return false;
+        if (key.toLowerCase().matches("^[a-f0-9]+$") && key.length() % 2 == 0) return false;
+        else return true;
     }
 
     public static String generateKey(int bits) throws IOException {

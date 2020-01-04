@@ -59,7 +59,13 @@
       <VBox alignment="TOP_CENTER" layoutY="73.0" prefHeight="127.0" prefWidth="800.0" spacing="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label fx:id="keyLabel" alignment="CENTER" text="Hexadecimal Key" textAlignment="CENTER" />
-            <Button fx:id="generateKeyButton" mnemonicParsing="false" onAction="#generatePressed" text="Generate Key" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <Button fx:id="generateKeyButton" mnemonicParsing="false" onAction="#generatePressed" text="Generate Key" />
+                  <TextField fx:id="keyEntryTextField" prefHeight="25.0" prefWidth="107.0" />
+                  <Label text="Max 2048" />
+               </children>
+            </HBox>
             <TextField id="ketTF" fx:id="keyTextField" maxHeight="25.0" prefHeight="25.0" prefWidth="397.0">
                <VBox.margin>
                   <Insets left="40.0" right="40.0" />

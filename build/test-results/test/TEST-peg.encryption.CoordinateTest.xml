@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="peg.encryption.CoordinateTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-01T10:37:01" hostname="LAPTOP-1CG44RVT" time="0.007">
-  <properties/>
-  <testcase name="printCoordTest" classname="peg.encryption.CoordinateTest" time="0.007"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

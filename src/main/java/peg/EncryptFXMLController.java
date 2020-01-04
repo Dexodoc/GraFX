@@ -21,6 +21,7 @@ public class EncryptFXMLController implements Initializable {
     public Button generateKeyButton;
     public Button leftClear;
     public Button rightClear;
+    public TextField keyEntryTextField;
     @FXML private TextField keyTextField;
     @FXML private TextArea leftTextArea;
     @FXML private TextArea rightTextArea;
@@ -76,7 +77,7 @@ public class EncryptFXMLController implements Initializable {
         String key = keyTextField.getText().toLowerCase();
 
         if (key.isEmpty()) messageLabel.setText("No Key Entered");
-        else if(!Key.keyValidity(key)) messageLabel.setText("Invalid Key: Requires even number of characters or 0-f");
+        else if(Key.keyValidity(key)) messageLabel.setText("Invalid Key: Requires even number of characters or 0-f");
         else {
             resetMessage();
             String plaintext = leftTextArea.getText();
@@ -107,7 +108,7 @@ public class EncryptFXMLController implements Initializable {
     private void decryptData(){
         String key = keyTextField.getText().toLowerCase();
         if (key.isEmpty()) messageLabel.setText("No Key Entered");
-        else if(!Key.keyValidity(key)) messageLabel.setText("Invalid Key: Requires even number of characters or 0-f");
+        else if(Key.keyValidity(key)) messageLabel.setText("Invalid Key: Requires even number of characters or 0-f");
         else {
             resetMessage();
             String encrypt = leftTextArea.getText();
@@ -136,12 +137,13 @@ public class EncryptFXMLController implements Initializable {
     }
 
     public void generatePressed(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/peg/key.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("Key Generation");
-        stage.setScene(scene);
-        stage.show();
+        String bitCount = keyEntryTextField.getText();
+        if (bitCount.matches("^[0-9]+$")){
+            String key = Key.generateKey(Integer.parseInt(bitCount));
+            keyTextField.setText(key);
+        } else {
+            keyTextField.setText("Please enter a number from 0-2048");
+        }
     }
 
     public void leftClearPressed(ActionEvent actionEvent) {
